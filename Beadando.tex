@@ -1,60 +1,93 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{report}
 \usepackage[T1]{fontenc}
-\PassOptionsToPackage{defaults=hu-min}{magyar.ldf}
+%* this completes requirement 5.
+\PassOptionsToPackage{defaults=hu-min}{magyar.ldf} 
 \usepackage[magyar]{babel}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\footnotestyle{rule=fourth}
+%* this completes requirement 6.
+\usepackage{amsthm}
 \begin{document}
 Fent, a magasban fáklyák lobogtak, és fénybe borították a Palazzo Vecchio és Bargello tornyait, de valamivel északabbra, a katedrális előtti téren csupán néhány lámpás pislákolt. Ezek némelyike gyengén megvilágította az Arno folyó rakpartját is, ahol a sötétség közeledte még fenyegetőbb volt; az itteni városlakók jónak látták idejekorán nyugovóra  térni  házuk  oltalmában. A homályban  már  csak  néhol mozgott  egy-egy  alak:  \emph{matrózok,  akik  kapkodva  tekerték  össze  a öteleket,}  és  súrolták  a  fedélzetet,  miután  befejezték  az  utolsó javításokat hajójuk vitorlázatán, kikötőmunkások, akik sietve hordták a rakományukat a közeli raktárak biztonságot adó falai közé. Bár az utcák néptelenek voltak, azért az éjszakában ide is jutott némi fény a kocsmák és bordélyházak ablakaiból.
+\Az{\pageref{abra-raid}}.~Oldalon található \ref{abra-raid}.~kép teljesíti a valahanyas követelményt\footnote{Ezt ne hagyd bent prod-ban, meg legyen 12es req. compliant}
 
-% This completes requirement 13.
-\begin{enumerate}
+
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=4cm]{Képek/raid.png}
+    \caption{Raid header}
+    \label{abra-raid}
+\end{figure}
+
+%* This completes requirement 13.
+\begin{itemize}
     \item De  tudta, ez alkalommal túl messzire  ment. Vieri arca bíborvörösre változott a dühtől. 
     \begin{enumerate}
         \item Elég volt, Ezio, te ócska szájhős! Lássuk, a kardodat is olyan jól 
         forgatod-e, mint a nyelved!
-        \begin{enumerate}
-            \item Öljétek le a fattyúkat! – üvöltötte.
-        \end{enumerate}
+        \begin{itemize}
+            \item Öljétek le a fattyúkat! - üvöltötte.
+        \end{itemize}
     \end{enumerate}
-\end{enumerate}
+\end{itemize}
+
+\color{blue}hola amigo
+
+
+\begin{table}[th!]
+    \centering
+    \begin{tabular}{c|c|c}
+        \hline
+        111&222&333\\
+        \hline
+        aaa&bbb&ccc\\
+        \hline
+    \end{tabular}
+    \caption{PLDAUL}
+    \label{tablazatom}
+\end{table}
+
+Lasd \az{\ref{abra-raid}}.~tablazatban a dolgot amit latnod kell
 
 \end{document}
 
-%1. A forrásfájl csak billentyűzetről begépelhető karaktereket tartalmaz-zon. Minden más karaktert LATEX-parancsokkal illetve ligatúrákkal adjon meg (pl. ,, ''-- \dots \"{e}).
+%!?1. A forrásfájl csak billentyűzetről begépelhető karaktereket tartalmaz-zon. Minden más karaktert LATEX-parancsokkal illetve ligatúrákkal adjon meg (pl. ,, ''-- \dots \"{e}).
 
-%2. Az oldaltörések legyenek automatikusak, ne használjon \newpage illetve \pagebreak vagy ezekhez hasonló parancsokat.
+%!?2. Az oldaltörések legyenek automatikusak, ne használjon \newpage illetve \pagebreak vagy ezekhez hasonló parancsokat.
 
-%3. Ne legyenek sorvégi túlcsordulások. Ellenkező esetben a naplóban az„Overfull \hbox in paragraph” üzenet olvasható. A megszüntetésüketaz optimális tördelés miatt mindig átfogalmazással érje el, ne használjon \sloppy vagy \linebreak parancsokat
+%!?3. Ne legyenek sorvégi túlcsordulások. Ellenkező esetben a naplóban az„Overfull \hbox in paragraph” üzenet olvasható. A megszüntetésüketaz optimális tördelés miatt mindig átfogalmazással érje el, ne használjon \sloppy vagy \linebreak parancsokat
 
-%4. Használjon report osztályt. Az oldalméret legyen A4, az alapbetűméret 12 pt, a nyomtatott verzió kétoldalas.
+%!4. Használjon report osztályt. Az oldalméret legyen A4, az alapbetűméret 12 pt, a nyomtatott verzió kétoldalas.
 
-%5. A dokumentum főszövege legyen magyar nyelvű. A magyar.ldf legyendefaults=hu-min opcióval betöltve. Ügyeljen rá, hogy T1 belső kódo-lást használjon. 
+%!*5. A dokumentum főszövege legyen magyar nyelvű. A magyar.ldf legyendefaults=hu-min opcióval betöltve. Ügyeljen rá, hogy T1 belső kódo-lást használjon. 
 
-%6. A lábjegyzetek felett legyen vonal, melynek hossza a szövegtükör szé-lességének negyede.
+%!*6. A lábjegyzetek felett legyen vonal, melynek hossza a szövegtükör szé-lességének negyede.
 
-%7. Definiáljon az amsthm csomag segítségével egy definicio nevű számo-zott tételszerű környezetet definition stílussal, melynek címe „Defi-níció”, a számlálóőse pedig a fejezet (chapter) száma. 
+%!?7. Definiáljon az amsthm csomag segítségével egy definicio nevű számo-zott tételszerű környezetet definition stílussal, melynek címe „Defi-níció”, a számlálóőse pedig a fejezet (chapter) száma. 
 
-%8. Állítsa be a fej- és láblécet a fancyhdr csomaggal a következők szerint:a) A fancyhdr csomagot úgy töltse be, hogy a szintinformációk magyar tipográfiával jelenjenek meg (azaz még a babel előtt). 3 pontb) Fejezetnyitó oldalon a fejléc üres, a lábléc közepén az oldalszámnormál betűvel és mérettel áll (azaz ne definiálja át a plain stí-lust). 1 pontc) Nem fejezetnyitó páros oldalon a fejléc bal felén az oldalszámnormál betűvel és mérettel, míg jobb felén a fejezetinformáció(\leftmark) groteszk betűtípussal (\sffamily) small (\small)méretben áll. 1 pontd) Nem fejezetnyitó páratlan oldalon a fejléc jobb felén az oldalszámnormál betűvel és mérettel, míg bal felén a szakaszinformáció(\rightmark) groteszk betűtípussal (\sffamily) small (\small méretben áll. 1 ponte) A fejlécnél legyen lénia, de a láblécnél n(ez a fancyhdr alapbe-állítása).
+%!8. Állítsa be a fej- és láblécet a fancyhdr csomaggal a következők szerint:a) A fancyhdr csomagot úgy töltse be, hogy a szintinformációk magyar tipográfiával jelenjenek meg (azaz még a babel előtt). 3 pontb) Fejezetnyitó oldalon a fejléc üres, a lábléc közepén az oldalszámnormál betűvel és mérettel áll (azaz ne definiálja át a plain stí-lust). 1 pontc) Nem fejezetnyitó páros oldalon a fejléc bal felén az oldalszámnormál betűvel és mérettel, míg jobb felén a fejezetinformáció(\leftmark) groteszk betűtípussal (\sffamily) small (\small)méretben áll. 1 pontd) Nem fejezetnyitó páratlan oldalon a fejléc jobb felén az oldalszámnormál betűvel és mérettel, míg bal felén a szakaszinformáció(\rightmark) groteszk betűtípussal (\sffamily) small (\small méretben áll. 1 ponte) A fejlécnél legyen lénia, de a láblécnél n(ez a fancyhdr alapbe-állítása).
 
-%9. A címoldal tartalmazza a címet, szerzőt, szakot és a dokumentum fordításának dátumát (pontosabban bármelyik fordításnál az aktuális dátum jelenjen meg, ami az alapbeállítás). 
+%!9. A címoldal tartalmazza a címet, szerzőt, szakot és a dokumentum fordításának dátumát (pontosabban bármelyik fordításnál az aktuális dátum jelenjen meg, ami az alapbeállítás). 
 
-%10. A címoldal után álljon tartalomjegyzék. 
+%!10. A címoldal után álljon tartalomjegyzék. 
 
-%11. A szöveg álljon legalább két számozott fejezetből, fejezetenként legyenlegalább két számozott szakasz. Minden fejezet legyen legalább háromoldal. A főszöveg legyen sorkizárt (ami alapbeállítás). Egy szakaszonbelül legyen több bekezdés. Értelmes legyen a szöveg, ne használjon lorem ipsumhoz hasonló megoldást. 
+%!11. A szöveg álljon legalább két számozott fejezetből, fejezetenként legyenlegalább két számozott szakasz. Minden fejezet legyen legalább háromoldal. A főszöveg legyen sorkizárt (ami alapbeállítás). Egy szakaszonbelül legyen több bekezdés. Értelmes legyen a szöveg, ne használjon lorem ipsumhoz hasonló megoldást. 
 
-%12. Illesszen be egy 5 cm széles képet (jpg, png, pdf) úsztatott környezetben, középre igazítva, számozással, felirattal. 
+%!?12. Illesszen be egy 5 cm széles képet (jpg, png, pdf) úsztatott környezetben, középre igazítva, számozással, felirattal. 
 
-%13 A szövegben legyen három szint mélységű lista.
+%*13 A szövegben legyen három szint mélységű lista.
 
-%14. Használja a definicio környezetet és hivatkozzon rá. A hivatkozásnál használjon automatikus határozott névelőt. 
+%!14. Használja a definicio környezetet és hivatkozzon rá. A hivatkozásnál használjon automatikus határozott névelőt. 
 
-%15. Hivatkozzon a 2. fejezetre és annak nyitó oldalszámára. Mindkét hivatkozás előtt álljon automatikus határozott névelő.
+%!15. Hivatkozzon a 2. fejezetre és annak nyitó oldalszámára. Mindkét hivatkozás előtt álljon automatikus határozott névelő.
 
-%16. Írjon néhány lábjegyzetet. Ügyeljen arra, hogy a lábjegyzet jelölője előtt nincs szóköz, továbbá a szöveg egész mondatokból áll.
+%!?16. Írjon néhány lábjegyzetet. Ügyeljen arra, hogy a lábjegyzet jelölője előtt nincs szóköz, továbbá a szöveg egész mondatokból áll.
 
-%17. Használjon idézőjelet és gondolatjelet. A gondolatjel valóban gondolatjel szerepkörben legyen, ne csak nagykötőjelként.
+%!17. Használjon idézőjelet és gondolatjelet. A gondolatjel valóban gondolatjel szerepkörben legyen, ne csak nagykötőjelként.
 
-%18. Az alábbi képletet írja le kiemelt számozott matematikai környezetben.𝑔: R∖{𝑛𝜋 : 𝑛 ∈Z}→R, 𝑔(𝑥) :=⎧⎨⎩ctg3(𝑥) sin(2𝑥)𝑥−1 , ha 𝑥 > 1,𝑥(︁𝑥22 + 1)︁, különben. A képletszámra hivatkozzon. A ctg operátorjelet a preambulumbandefiniálja. Nem baj, ha a képlet nem illeszkedik a témába. 
+%!18. Az alábbi képletet írja le kiemelt számozott matematikai környezetben.𝑔: R∖{𝑛𝜋 : 𝑛 ∈Z}→R, 𝑔(𝑥) :=⎧⎨⎩ctg3(𝑥) sin(2𝑥)𝑥−1 , ha 𝑥 > 1,𝑥(︁𝑥22 + 1)︁, különben. A képletszámra hivatkozzon. A ctg operátorjelet a preambulumbandefiniálja. Nem baj, ha a képlet nem illeszkedik a témába. 
 
-%19. Jelenítsen meg egy programkódot a listings csomaggal. A sorok legyenek számozva. A programkód ne a tex fájlban legyen begépelve,töltse be külön fájlból. A programkód kulcsszavai és megjegyzései le-gyenek kiemelve. Nem baj, ha a kód nem illeszkedik a témába. 
+%!19. Jelenítsen meg egy programkódot a listings csomaggal. A sorok legyenek számozva. A programkód ne a tex fájlban legyen begépelve,töltse be külön fájlból. A programkód kulcsszavai és megjegyzései le-gyenek kiemelve. Nem baj, ha a kód nem illeszkedik a témába. 
 
-%20. A végén legyen irodalomjegyzék thebibliography környezettel. A bibliográfiai elemek legyenek számozottak. A főszövegben hivatkozzon azirodalomjegyzék egy elemének egy adott oldalára \cite paranccsal.Az oldal a \cite opciójában legyen megadva. 
+%!20. A végén legyen irodalomjegyzék thebibliography környezettel. A bibliográfiai elemek legyenek számozottak. A főszövegben hivatkozzon azirodalomjegyzék egy elemének egy adott oldalára \cite paranccsal.Az oldal a \cite opciójában legyen megadva. 
